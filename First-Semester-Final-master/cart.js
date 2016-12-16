@@ -1,23 +1,25 @@
 class Cart{
   //What is the first part of every class? Type it below.
 constructor(itemList,quantity){
- this.itemList =[];
- this.quantity = [];
+ itemList =[];
+ quantity = [];
+ this.itemList=itemList
+ this.quantity=quantity
 }
 
 
   //Type the instance functions below this comment.
-function cartTotal(){
+function totalCart(){
   let total=0
   for(var i=0;i<quantity.length;i++){
-    total += quantity[i]
+    total += this.quantity[i]*this.itemList[i]
   }
   return total
 }
 
-function addItem(number){
-  this.itemList.push(Item)
-  this.quantity.push(number)
+function addItem(i,q){
+  this.itemList.push(i)
+  this.quantity.push(q)
 }
 
 function subCart(day){
@@ -28,10 +30,6 @@ function subCart(day){
   return subArray;
 }
 
-function delivery()
-let earliest = itemList[0].shippingTime
-let lastest = itemList[0].shippingTime
-for (var i=0, i<itemList.length; i++){
-  if
-}
+
+
 }

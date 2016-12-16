@@ -1,6 +1,6 @@
 class Password{
   //The first part of the class.
-constructor(pb,pv{
+constructor(pb,pv){
 this.publicKey=pb;
 this.privateKey=pv;
 }
@@ -9,47 +9,53 @@ this.privateKey=pv;
   //Instance functions below this comment.
 validPublicKey(){
   if(this.publicKey.length>=8 && this.publicKey.length<=25){
-    return "true"
+    return true;
   }
   else{
-    return "false"
+    return false;
   }
 }
 
 validPrivateKey(){
+    let areDashesRight = true
+    let areNumbersRight = true
     if(this.privateKey[4]="-" && this.privateKey[9]="-"){
-      return "dashes are right"
+      areDashesRight = true;
     }
-    for(var i=0;i<14;i++){
-      while (!i==4 && !==9){
-        if(this.privateKey.charCodeAt(i)>=48 && this.privateKey.charCodeAt(i)<=57){
-          return "password are numbers"
+    else{
+      areDashesRight = false;
+    }
+    for(var i=0;i<limit;i++){
+      while(!i==4 && !i==9){
+        if(Number.isNaN(this.privateKey) == true){
+          areNumbersRight = true;
         }
-        else {
-          return "password are not numbers"
+        else{
+          areNumbersRight = false;
+        }
+        if (areNumbersRight && areDashesRight){
+          return "validPrivateKey"
+        }
+        else{
+          return "privatekey not valid"
         }
       }
     }
+  }
 
     static makePrivateKey(){
-      let password = abcd-efgh-ijkl;
-      a=(Math.Random*10).floor;
-      b=(Math.Random*10).floor;
-      c=(Math.Random*10).floor;
-      d=(Math.Random*10).floor;
-      e=(Math.Random*10).floor;
-      f=(Math.Random*10).floor;
-      g=(Math.Random*10).floor;
-      h=(Math.Random*10).floor;
-      i=(Math.Random*10).floor;
-      j=(Math.Random*10).floor;
-      k=(Math.Random*10).floor;
-      l=(Math.Random*10).floor;
-
-
-    }
+      let key = [];
+      let limit = 14;
+      for(var i=0, i<limit, i++){
+        if (!i==4 && !==9){
+          key.push(Math.floor(Math.Random()*10));
+      }
+      else{
+        key.push("-")
+      }
+  }
+  return key
 }
 
 
-  //Static function below this comment.
 }
